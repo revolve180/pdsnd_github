@@ -75,7 +75,7 @@ def load_data(city, month, day):
 
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
+    df['day_name'] = df['Start Time'].dt.weekday_name
 
     # create new column for start time hour
     df['hour'] = df['Start Time'].dt.hour
@@ -98,7 +98,7 @@ def load_data(city, month, day):
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
-        df = df[df['day_of_week'] == day.title()]
+        df = df[df['day_name'] == day.title()]
 
     return df
 
@@ -114,7 +114,7 @@ def time_stats(df):
     print("The most common month is: ", months[df['month'].mode()[0]].title())
 
     # TO DO: display the most common day of week
-    print("The most common day is: ", df['day_of_week'].mode()[0])
+    print("The most common day is: ", df['day_name'].mode()[0])
 
     # TO DO: display the most common start hour
     common_hour = str(df['hour'].mode()[0])
@@ -209,7 +209,7 @@ def main():
         if see_more.lower() in ('yes' or 'y'):
             i=0
             print(df2[i:i+5])
-            even_more = input("\nView more? Enter yes or no.")            
+            even_more = input("\nView more? Enter yes or no.")
             while even_more not in ('no', 'n'):
                 if even_more in ('yes', 'y') and i <= (len(df2) - 5):
                     i += 5
