@@ -2,7 +2,7 @@
 03/23/2019
 
 ### Project Title
-**Git Out** *(title under development)*
+**Git (out) and Bike(share)**
 
 ### Description
 This project serves to exhibit mastery of many things Git-ish, using the **The Grand Bikeshare Experiment** as the subject/victim code.
