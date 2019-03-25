@@ -65,27 +65,27 @@ def load_data(city, month, day):
     """
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # create a Start & End stations combo column
     df['Start/End Stations'] = df['Start Station'] + "/" + df['End Station']
-    
+
     # convert the Start & End Times columns to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    df['End Time'] = pd.to_datetime(df['End Time'])    
-    
+    df['End Time'] = pd.to_datetime(df['End Time'])
+
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
     # create new column for start time hour
     df['hour'] = df['Start Time'].dt.hour
-    
+
     # rename first column to "Trip Number"
     df.columns.values[0] = 'Trip Number'
 
     # convert trip durations to timedelta format
     df['Trip Duration'] = pd.to_timedelta(df['Trip Duration'], 'S')
-    
+
     # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
@@ -106,7 +106,7 @@ def load_data(city, month, day):
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
-    
+
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
@@ -119,7 +119,7 @@ def time_stats(df):
     # TO DO: display the most common start hour
     common_hour = str(df['hour'].mode()[0])
     print("The most common hour is: ", datetime.datetime.strptime(common_hour, "%H").strftime("%I %p"))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -145,7 +145,7 @@ def station_stats(df):
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
-    
+
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
@@ -163,7 +163,7 @@ def trip_duration_stats(df):
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
-   
+
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
@@ -176,7 +176,7 @@ def user_stats(df):
         print("The number of trips by user gender is :\n(Note: \'NaN\' indicates no user gender data exists for trip)\n{}\n".format(df['Gender'].value_counts(dropna = False).to_string()))
     else:
         print("No gender data exists for this city")
-    
+
 
     # TO DO: Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
@@ -186,7 +186,7 @@ def user_stats(df):
         print("Birth year stats of users:\nEarliest birth year: {}\nLatest birth year: {}\nMost common birth year: {}".format(earliest_birth_year, latest_birth_year, most_common_birth_year))
     else:
         print("No birth year data exists for this city")
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -198,30 +198,30 @@ def main():
         # compile standardized view of raw data
         df2 = pd.read_csv(CITY_DATA[city])
         # get user input and display raw data or end/restart
-        see_more = input("\nWould you like to see the raw data? Enter yes or no: ")
+        see_more = input("\nView raw data? Enter yes or no: ")
         while see_more.lower() not in ['yes', 'y', 'no', 'n']:
             try:
-                see_more = input("Would you like to see the raw data?  Please enter only yes or no: ")
+                see_more = input("View raw data?  Please enter only yes or no: ")
             except:
-                see_more = input("Would you like to see the raw data?  Please enter only yes or no: ")
+                see_more = input("View raw data?  Please enter only yes or no: ")
             if see_more.lower() in ('yes', 'y', 'no', 'n'):
                 break
         if see_more.lower() in ('yes' or 'y'):
             i=0
             print(df2[i:i+5])
-            even_more = input("\nWould you like to see more? Enter yes or no.")            
+            even_more = input("\nView more? Enter yes or no.")            
             while even_more not in ('no', 'n'):
                 if even_more in ('yes', 'y') and i <= (len(df2) - 5):
                     i += 5
                     print(df2[i:i+5])
-                    even_more = input("Would you like to see more? Enter yes or no: ")
+                    even_more = input("View more? Enter yes or no: ")
                 else:
                     if i > (len(df2) - 5):
                         break
                     try:
-                        even_more = input("Would you like to see more? Please enter only yes or no: ")
+                        even_more = input("View more? Please enter only yes or no: ")
                     except:
-                        even_more = input("Would you like to see more? Please enter only yes or no: ")
+                        even_more = input("View more? Please enter only yes or no: ")
 
     while True:
         city, month, day = get_filters()
@@ -235,7 +235,7 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
         see_data()
-        
+
         restart = input("\nWould you like to restart? Enter yes or no.\n")
         if restart.lower() not in ('yes', 'y'):
             break
@@ -248,5 +248,4 @@ if __name__ == "__main__":
 # In[ ]:
 
 
-# 
-
+#
