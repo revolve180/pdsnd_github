@@ -1,15 +1,22 @@
 ### Date created
-Include the date you created this project and README file.
+03/23/2019
 
 ### Project Title
-Replace the Project Title
+Git Out (title under development)
 
 ### Description
-Describe what your project is about and what it does
+This project serves to exhibit mastery of many things Git-ish, using the "The Grand Bikeshare Experiment" as the subject/victim code.
 
 ### Files used
-Include the files used
+Code:
+bikeshare.py
+
+Data:
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+UDACITY!!!
+Also, it takes a village to raise a giant...
+I'd like to thank all the little people who made this possible.
