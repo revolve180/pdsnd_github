@@ -8,6 +8,8 @@
 This project serves to exhibit mastery of many things Git-ish, using the **The Grand Bikeshare Experiment** as the subject/victim code.
 
 ### Files used
+Repo location: https://github.com/revolve180/pdsnd_github.git
+
 Code:
 *bikeshare.py*
 
