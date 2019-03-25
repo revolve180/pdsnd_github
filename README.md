@@ -14,8 +14,8 @@ Code:
 *bikeshare.py*
 
 Data:
-*chicago.csv*
-*new_york_city.csv*
+*chicago.csv*, 
+*new_york_city.csv*, 
 *washington.csv*
 
 ### Credits
