@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
-#!/usr/bin/env python
-# coding: utf-8
 # Udacity - Programming for Data Science
 # Explore US Bikeshare Data Project - Jason Rodrigues
 
@@ -243,10 +235,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-
-
-# In[ ]:
-
-
-# 
-
